@@ -50,7 +50,7 @@ export DD_SDK_DATADOG_XCCONFIG_CI
 # Do not call 'brew update' and instead let Bitrise use its own brew bottle mirror.
 dependencies:
 		@echo "⚙️  Installing dependencies..."
-		@brew list swiftlint &>/dev/null 
+		@brew list swiftlint &>/dev/null || brew install swiftlint
 		@brew upgrade carthage
 		@carthage bootstrap --platform iOS,tvOS --use-xcframeworks
 		@echo $$DD_SDK_BASE_XCCONFIG > xcconfigs/Base.local.xcconfig;
